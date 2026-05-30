@@ -1,0 +1,240 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Happy Birthday Angela Hello Kitty</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    background:linear-gradient(180deg,#090012,#140022,#220033);
+    font-family:Segoe UI,sans-serif;
+    color:white;
+}
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:30px;
+    opacity:0;
+    transition:1.5s;
+}
+
+.slide.active{
+    opacity:1;
+}
+
+h1{
+    color:#d8a4ff;
+    text-shadow:0 0 20px #b14cff;
+    margin-bottom:20px;
+}
+
+p{
+    max-width:800px;
+    line-height:1.8;
+    font-size:1.2rem;
+}
+
+.date{
+    margin-top:15px;
+    color:#d8a4ff;
+}
+
+.tulip{
+    position:fixed;
+    font-size:60px;
+    animation:float 4s ease-in-out infinite;
+}
+
+.left{left:20px;top:30%;}
+.right{right:20px;top:30%;}
+
+.dandelion{
+    position:fixed;
+    bottom:15px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:70px;
+}
+
+@keyframes float{
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+.heart-section{
+    position:relative;
+    width:100%;
+    height:100%;
+    perspective:1000px;
+}
+
+.heart{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform-style:preserve-3d;
+    animation:spin 15s linear infinite;
+}
+
+.word{
+    position:absolute;
+    color:#c77dff;
+    font-size:14px;
+    text-shadow:
+      0 0 10px #c77dff,
+      0 0 20px #c77dff,
+      0 0 30px #c77dff;
+    white-space:nowrap;
+}
+
+@keyframes spin{
+    from{transform:translate(-50%,-50%) rotateY(0deg);}
+    to{transform:translate(-50%,-50%) rotateY(360deg);}
+}
+
+.stars{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    animation:blink 2s infinite;
+}
+
+@keyframes blink{
+    50%{opacity:.2;}
+}
+</style>
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="https://raw.githubusercontent.com/dandelions10/Sound-Html/main/Katy.mp3" type="audio/mpeg">
+</audio>
+
+<div class="stars" id="stars"></div>
+
+<div class="tulip left">🌷</div>
+<div class="tulip right">🌷</div>
+<div class="dandelion">🌼</div>
+
+<!-- Slide 1 -->
+<section class="slide active">
+    <h1>💜 Happy Birthday Angela Hello Kitty 💜</h1>
+    <div class="date">29 May 2026</div>
+</section>
+
+<!-- Slide 2 -->
+<section class="slide">
+    <p>
+        Selamat ulang tahun yaa. 🎂<br><br>
+
+        Semoga hidup selalu baik sama kamu,
+        semoga semua yang kamu inginkan pelan-pelan tercapai,
+        dan semoga kamu selalu dikelilingi hal-hal
+        yang bikin hati kamu tenang.
+    </p>
+</section>
+
+<!-- Slide 3 -->
+<section class="slide">
+    <div class="heart-section">
+        <div class="heart" id="heart"></div>
+    </div>
+</section>
+
+<!-- Slide 4 -->
+<section class="slide">
+    <p>
+        Mungkin sama seperti lagu favorit kita,
+        The One That Got Away.<br><br>
+
+        Bukan tentang kehilangan sepenuhnya,
+        tapi tentang seseorang yang tetap tinggal di hati
+        meski akhirnya nggak bisa dimiliki.<br><br>
+
+        Kadang aku mikir,
+        mungkin kita memang bukan dua manusia yang
+        ditakdirkan bersama di hidup ini.<br><br>
+
+        Tapi siapa tahu, di another life,
+        kita jadi dua manusia yang akhirnya bisa saling memiliki
+        tanpa harus kehilangan satu sama lain.<br><br>
+
+        Terima kasih ya,
+        karena pernah jadi bagian indah yang sampai sekarang
+        masih aku ingat dengan baik.<br><br>
+
+        Bahagia selalu yaa. 🤍<br><br>
+
+        — Dandelions 🌼
+    </p>
+</section>
+
+<script>
+const slides=document.querySelectorAll('.slide');
+let current=0;
+
+setInterval(()=>{
+slides[current].classList.remove('active');
+current=(current+1)%slides.length;
+slides[current].classList.add('active');
+},10000);
+
+const stars=document.getElementById('stars');
+for(let i=0;i<150;i++){
+ const s=document.createElement('div');
+ s.className='star';
+ s.style.left=Math.random()*100+'%';
+ s.style.top=Math.random()*100+'%';
+ s.style.animationDelay=Math.random()*2+'s';
+ stars.appendChild(s);
+}
+
+const heart=document.getElementById('heart');
+
+for(let z=-120;z<=120;z+=25){
+  for(let t=0;t<Math.PI*2;t+=0.13){
+
+    let x=16*Math.pow(Math.sin(t),3);
+    let y=-(13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t));
+
+    const span=document.createElement('span');
+    span.className='word';
+    span.innerText='Happy Birthday Angela Hello Kitty';
+
+    span.style.left=(x*18)+'px';
+    span.style.top=(y*18)+'px';
+    span.style.transform=`translateZ(${z}px)`;
+
+    heart.appendChild(span);
+  }
+}
+</script>
+
+</body>
+</html>
+```
