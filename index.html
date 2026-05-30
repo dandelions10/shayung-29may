@@ -1,43 +1,25 @@
-Simpan Ya
+Simpan ya!!!!
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Happy Birthday</title>
-    
+<title>Happy Birthday Angela Hello Kitty</title>
+
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
-</script>
-function startBirthday(){
-    document.getElementById('bgm').play();
 
-    document.getElementById('opening').style.opacity='0';
-
-    setTimeout(()=>{
-        document.getElementById('opening').style.display='none';
-    },1000);
-}
-</script>
 body{
     overflow:hidden;
     background:linear-gradient(180deg,#090012,#140022,#220033);
-    font-family:'Brush Script MT', cursive;
+    font-family:'Poppins',sans-serif;
     color:white;
 }
-<div id="opening">
-    <div class="box">
-        <h1>💜 Happy Birthday 💜</h1>
-        <p>Angela Hello Kitty</p>
-        <button onclick="startBirthday()">
-            🌷 Open Birthday Letter 🌷
-        </button>
-    </div>
-</div>
+
 .slide{
     position:absolute;
     width:100%;
@@ -149,8 +131,8 @@ p{
 </head>
 <body>
 
-<audio id="bgm" loop>
-  <source src="Katyy.mp3" type="audio/mpeg">
+<audio autoplay loop>
+  <source src="https://raw.githubusercontent.com/dandelions10/Sound-Html/main/Katy.mp3" type="audio/mpeg">
 </audio>
 
 <div class="stars" id="stars"></div>
@@ -161,7 +143,7 @@ p{
 
 <!-- Slide 1 -->
 <section class="slide active">
-    <h1>💜 Happy Birthday  💜</h1>
+    <h1>💜 Happy Birthday 💜</h1>
     <h1>💜 Angela Hello Kitty 💜</h1>
     <div class="date">29 May 2026</div>
 </section>
