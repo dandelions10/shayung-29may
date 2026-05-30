@@ -5,21 +5,70 @@ Simpan Ya
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Happy Birthday</title>
+#opening{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(180deg,#090012,#140022,#220033);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    transition:1s;
+}
 
+#opening .box{
+    text-align:center;
+}
+
+#opening .box p{
+    font-size:1.4rem;
+    margin-top:10px;
+    margin-bottom:25px;
+    color:white;
+}
+
+#opening button{
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:#c77dff;
+    color:white;
+    font-size:1.1rem;
+    cursor:pointer;
+    box-shadow:0 0 20px #c77dff;
+}
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
+<script>
+function startBirthday(){
+    document.getElementById('bgm').play();
 
+    document.getElementById('opening').style.opacity='0';
+
+    setTimeout(()=>{
+        document.getElementById('opening').style.display='none';
+    },1000);
+}
+</script>
 body{
     overflow:hidden;
     background:linear-gradient(180deg,#090012,#140022,#220033);
     font-family:'Brush Script MT', cursive;
     color:white;
 }
-
+<div id="opening">
+    <div class="box">
+        <h1>💜 Happy Birthday 💜</h1>
+        <p>Angela Hello Kitty</p>
+        <button onclick="startBirthday()">
+            🌷 Open Birthday Letter 🌷
+        </button>
+    </div>
+</div>
 .slide{
     position:absolute;
     width:100%;
@@ -131,7 +180,7 @@ p{
 </head>
 <body>
 
-<audio id="bgm" loop controls>
+<audio id="bgm" loop>
   <source src="https://raw.githubusercontent.com/dandelions10/shayung-29may/main/Katyy.mp3" type="audio/mpeg">
 </audio>
 
